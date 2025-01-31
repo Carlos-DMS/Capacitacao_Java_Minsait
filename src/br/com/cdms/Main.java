@@ -2,38 +2,23 @@ package br.com.cdms;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World!!!");
-        System.out.println("---------------");
-        System.out.println(":: OPERADORES LOGICOS ::");
+       //Orientação a objetos
 
-        //estruturas de repetição
+        Pessoa pessoa = new Pessoa();
 
-        int max = 21;
-        for (int num = 0; num <= max; num++) {
-            //System.out.println("> " + num);
-            if (num % 2 == 0) {
-                System.out.println("> " + num + " *");
-            }
-            else {
-                System.out.println("> " + num);
-            }
-        }
+        pessoa.nome = "Carlos";
+        pessoa.email = "carlos@gmail.com";
+        pessoa.endereco = "rua X, número 123";
 
-        int indice = 0;
+        pessoa.estudar();
+        pessoa.lazer(2);
 
-        while (indice <= 100) {
-            System.out.print("indice: " + indice);
+        Pessoa pessoa2 = new Pessoa();
 
-            switch (indice) {
-                case 45:
-                    System.out.println(" - Número sorteado! :)");
-                    break;
-                default:
-                    System.out.println(" - Esse número não foi sorteado :(");
-                    break;
-            }
-            indice++;
-        }
+        pessoa2.nome = "João";
+        pessoa2.email = "joao@gmail.com";
+        pessoa2.endereco = "";
 
+        pessoa2.trabalhar();
     }
 }
