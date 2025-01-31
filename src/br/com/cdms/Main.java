@@ -2,24 +2,29 @@ package br.com.cdms;
 
 public class Main {
     public static void main(String[] args) {
-       //Orientação a objetos
+        //Orientação a objetos
 
-        Pessoa pessoa = new Pessoa("Carlos", "rua X, número 123", "carlos@gmail.com");
+        PessoaFisica pFisica = new PessoaFisica(
+                "nome",
+                "endereco",
+                "email",
+                "cpf"
+        );
 
-        pessoa.estudar();
-        pessoa.lazer(2);
+        System.out.println("nome: " + pFisica.getNome());
+        System.out.println("endereço: " + pFisica.getEndereco());
+        System.out.println("email: " + pFisica.getEmail());
+        System.out.println("cpf: " + pFisica.getCpf());
 
-        Pessoa pessoa2 = new Pessoa("João", "joao@gmail.com");
+        Pessoa pessoaNet;
 
-        pessoa2.trabalhar();
-        pessoa2.lazer(3);
+        boolean ehPessoaFisica = false;
 
-        System.out.println();
-
-        pessoa2.setNome("João Silva");
-        System.out.println("Pessoa 2:");
-        System.out.println("nome: " + pessoa2.getNome());
-        System.out.println("endereço: " + pessoa2.getEndereco());
-        System.out.println("email: " + pessoa2.getEmail());
+        if (ehPessoaFisica) {
+            pessoaNet = new PessoaFisica("nome", "endereco", "email", "cpf");
+        }
+        else {
+            pessoaNet = new PessoaJuridica("nome", "endereco", "email", "nomeFantasia", "cnpj");
+        }
     }
 }
