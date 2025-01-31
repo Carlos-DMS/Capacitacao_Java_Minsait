@@ -6,47 +6,34 @@ public class Main {
         System.out.println("---------------");
         System.out.println(":: OPERADORES LOGICOS ::");
 
-        //validacao por operador logico
+        //estruturas de repetição
 
-        boolean condicao = false;
-        if (condicao == true) {
-            System.out.println("Condição verdadeira");
-        }
-        else {
-            System.out.println("Condição falsa");
-        }
-
-        if (!condicao) {
-            System.out.println("Ainda falsa");
-        }
-
-        System.out.println();
-
-        int idade = 9;
-
-        if (idade <18)
-            System.out.println("Menor de idade");
-        else
-            System.out.println("Maior de idade");
-
-        switch (idade) {
-            case 5:
-                System.out.println("Criança");
-                break;
-            case 15:
-                System.out.println("Adolescente");
-                break;
-            case 18, 19, 20:
-                System.out.println("Adulto");
-                break;
-            default:
-                if (idade >= 0)
-                    System.out.println("Idade não listadas");
-                else
-                    System.out.println("Idade inválida");
-                break;
+        int max = 21;
+        for (int num = 0; num <= max; num++) {
+            //System.out.println("> " + num);
+            if (num % 2 == 0) {
+                System.out.println("> " + num + " *");
+            }
+            else {
+                System.out.println("> " + num);
+            }
         }
 
+        int indice = 0;
+
+        while (indice <= 100) {
+            System.out.print("indice: " + indice);
+
+            switch (indice) {
+                case 45:
+                    System.out.println(" - Número sorteado! :)");
+                    break;
+                default:
+                    System.out.println(" - Esse número não foi sorteado :(");
+                    break;
+            }
+            indice++;
+        }
 
     }
 }
