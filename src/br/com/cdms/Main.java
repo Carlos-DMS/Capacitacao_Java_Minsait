@@ -1,64 +1,58 @@
 package br.com.cdms;
 
-import br.com.cdms.exception.LimitePixExcedidoException;
-import br.com.cdms.utils.ContaBancaria;
-import br.com.cdms.utils.Funcoes;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        //Tratamento de erros
+        //COLEÇÕES
 
-        int valor = 10;
-        int divisao = 2;
+        //ArrayList
 
-        System.out.println("Vou fazer a divisão!");
+        List<String> nomes = new ArrayList<>();
+        nomes.add("Maria");
+        nomes.add("João");
+        nomes.add("José");
 
-        int resposta = 0;
+        Collections.sort(nomes);
 
-        try {
-            resposta = valor / divisao;
-            System.out.println("Resposta = " + resposta);
-
-            int[] correcoes = {1,6,7,10,4};
-            for (int i = 0; i < 6; i++) {
-                System.out.println("Correções: " + correcoes[i]);
-            }
-        }
-        catch (ArithmeticException e)  {
-            System.out.println("ERRO ARITMETICO: " + e.getMessage());
-        }
-        catch (ArrayIndexOutOfBoundsException e)  {
-            System.out.println("ERRO ARRAY: " + e.getMessage());
-        }
-        catch (Exception e)  {
-            System.out.println("ERRO GENERICO: " + e.getMessage());
+        for (String nome : nomes) {
+            System.out.println("Nome" + nome);
         }
 
-        int correcao = resposta + 2;
-        System.out.println("A correção monetaria é de R$" + correcao);
+        //HashSet
 
-        //throws
+        Set<String> cores = new HashSet<>();
 
-        String retornoWeb = "5";
-        if (Funcoes.isNumeric(retornoWeb)) {
-            System.out.println("A variavel retornoWeb é numerica");
+        cores.add("Azul");
+        cores.add("Amarelo");
+        cores.add("Verde");
+        cores.add("Roxo");
+
+        System.out.println("--------------");
+
+        for (String cor : cores) {
+            System.out.println("Cor: " + cor);
         }
-        else {
-            System.out.println("A variavel retornoWeb não é numerica");
+
+        //HashMap
+
+        Map<String, String> paises = new HashMap<>();
+
+        paises.put("Brasil", "Brasilia");
+        paises.put("Franca", "Paris");
+        paises.put("Portugal", "Lisboa");
+
+        for (Map.Entry<String, String> capital : paises.entrySet()) {
+            System.out.println(" - " + capital.getValue());
         }
 
-        //Exceção personalizada
+        Map<Integer, Pessoa> mapPessoas = new HashMap<>();
 
-        ContaBancaria conta = new ContaBancaria(1000.00);
-        ContaBancaria conta2 = new ContaBancaria();
+        mapPessoas.put(1, new Pessoa("carlos@gmail.com", "Carlos"));
+        mapPessoas.put(2, new Pessoa("maria@gmail.com", "Maria"));
+        mapPessoas.put(3, new Pessoa("joão@gmail.com", "João"));
 
-        try {
-            conta.fazerPix(1700.00);
-            conta2.fazerPix(1900.00);
-        }
-        catch (LimitePixExcedidoException e) {
-            System.out.println(e.getMessage());
-        }
-    System.out.println("Transferencia feita!");
+        System.out.println("Pessoa João no map: " + mapPessoas.get(3).getNome());
+
     }
 }
